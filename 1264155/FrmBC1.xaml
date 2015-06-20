@@ -1,0 +1,64 @@
+﻿<Window x:Class="De01.TacVu.FrmBC1"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="BÁO CÁO THỐNG KÊ TÌNH HÌNH MƯỢN SÁCH THEO THỂ LOẠI" Height="412" Width="724">
+    <Grid>
+        <DataGrid AutoGenerateColumns="False"   Name="dataGrid1" Margin="10,41,10,35" HorizontalGridLinesBrush="#FF1F64A0" VerticalGridLinesBrush="#FF1F64A0" ItemsSource="{Binding}" IsTextSearchEnabled="False" IsTextSearchCaseSensitive="False" IsReadOnly="True" MaxColumnWidth="Infinity" SelectionUnit="Cell">
+            <DataGrid.Columns>
+                <DataGridTextColumn FontWeight="Bold" Header="STT" Binding="{Binding STT}" Width="50" >
+                    <DataGridColumn.HeaderStyle>
+                        <Style TargetType="DataGridColumnHeader">
+                            <Setter Property="Background" Value="#FF156EA7"/>
+                            <Setter Property="Foreground" Value="White"/>
+                            <Setter Property="FontWeight" Value="Bold"/>
+                            <Setter Property="Padding" Value="10,0,0,0"/>
+                            <Setter Property="Height" Value="35"/>
+                            <Setter Property="FontSize" Value="14"/>
+                        </Style>
+                    </DataGridColumn.HeaderStyle>
+                </DataGridTextColumn>
+                <DataGridTextColumn FontWeight="Bold" Header="Tên thể loại" Binding="{Binding Tl.TenTL}" Width="*" >
+                    <DataGridColumn.HeaderStyle>
+                        <Style TargetType="DataGridColumnHeader">
+                            <Setter Property="Background" Value="#FF156EA7"/>
+                            <Setter Property="Foreground" Value="White"/>
+                            <Setter Property="FontWeight" Value="Bold"/>
+                            <Setter Property="Padding" Value="20,0,0,0"/>
+                            <Setter Property="Height" Value="35"/>
+                            <Setter Property="Margin" Value="1,0,0,0"/>
+                            <Setter Property="FontSize" Value="14"/>
+                        </Style>
+                    </DataGridColumn.HeaderStyle>
+                </DataGridTextColumn>
+                <DataGridTextColumn FontWeight="Bold" Header="Số lượt mượn" Binding="{Binding Soluong}"  Width="*" >
+                    <DataGridColumn.HeaderStyle>
+                        <Style TargetType="DataGridColumnHeader">
+                            <Setter Property="Background" Value="#FF156EA7"/>
+                            <Setter Property="Foreground" Value="White"/>
+                            <Setter Property="FontWeight" Value="Bold"/>
+                            <Setter Property="Padding" Value="20,0,0,0"/>
+                            <Setter Property="Height" Value="35"/>
+                            <Setter Property="Margin" Value="1,0,0,0"/>
+                            <Setter Property="FontSize" Value="14"/>
+                        </Style>
+                    </DataGridColumn.HeaderStyle>
+                </DataGridTextColumn>
+                <DataGridTextColumn FontWeight="Bold" Header="Tỉ lệ" Binding="{Binding Tile}" Width="80" >
+                    <DataGridColumn.HeaderStyle>
+                        <Style TargetType="DataGridColumnHeader">
+                            <Setter Property="Background" Value="#FF156EA7"/>
+                            <Setter Property="Foreground" Value="White"/>
+                            <Setter Property="FontWeight" Value="Bold"/>
+                            <Setter Property="Padding" Value="20,0,0,0"/>
+                            <Setter Property="Height" Value="35"/>
+                            <Setter Property="Margin" Value="1,0,0,0"/>
+                            <Setter Property="FontSize" Value="14"/>
+                        </Style>
+                    </DataGridColumn.HeaderStyle>
+                </DataGridTextColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <TextBlock Height="23"  Margin="100,12,170,0" Name="txtNgay" Text="" VerticalAlignment="Top" Foreground="#FF156EA7" FontSize="14" FontWeight="Bold" HorizontalAlignment="Center" />
+    <TextBlock Height="23"  Margin="519,0,0,0" Name="txtTong" Text="" VerticalAlignment="Bottom" Foreground="#FF156EA7" FontSize="14" FontWeight="Bold"  />
+    </Grid>
+</Window>
