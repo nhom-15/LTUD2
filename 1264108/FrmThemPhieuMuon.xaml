@@ -1,0 +1,76 @@
+﻿<Window x:Class="De01.TacVu.FrmThemPhieuMuon"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="FrmThemPhieuMuon" Height="483" Width="543" xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid" xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+    <Grid>
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
+                <GradientStop Color="Black" Offset="0" />
+                <GradientStop Color="#D8C7C4C4" Offset="1" />
+                <GradientStop Color="#FCDE9494" Offset="0" />
+                <GradientStop Color="#FC544646" Offset="0" />
+                <GradientStop Color="#FEF4C9C9" Offset="1" />
+                <GradientStop Color="#DBFCDBDB" Offset="1" />
+                <GradientStop Color="#FADCFCD8" Offset="0" />
+                <GradientStop Color="#DCE8EFD9" Offset="0.984" />
+                <GradientStop Color="#DEDCF2B1" Offset="0.983" />
+            </LinearGradientBrush>
+        </Grid.Background>
+        <dxg:LookUpEdit HorizontalAlignment="Left" Margin="68,8,0,0" Name="txtDocGia" VerticalAlignment="Top" Width="187" Height="27" DisplayMember="HoTen" ValueMember="ID" FindMode="Always" AutoPopulateColumns="False" ItemsSource="{Binding}" PopupMinWidth="350" ShowBorder="True" BorderThickness="1" EditValueChanged="txtDocGia_EditValueChanged">
+            <dxg:LookUpEdit.EditCore>
+                <TextBox SelectionBrush="#FF8FBEF2" />
+            </dxg:LookUpEdit.EditCore>
+            <dxg:LookUpEdit.PopupContentTemplate>
+                <ControlTemplate>
+                    <dxg:GridControl Name="PART_GridControl">
+                        <dxg:GridControl.Columns>
+                            <dxg:GridColumn Header="ID" Width="30" FieldName="ID"/>
+                            <dxg:GridColumn Header="Họ tên" FieldName="HoTen"/>
+                        </dxg:GridControl.Columns>
+                    </dxg:GridControl>
+                </ControlTemplate>
+            </dxg:LookUpEdit.PopupContentTemplate>
+        </dxg:LookUpEdit>
+        <dxg:GridControl SelectionMode="Cell"  EnableSmartColumnsGeneration="True"  Margin="0,74,0,43" Name="gridControl1" Width="521" ItemsSource="{Binding}">
+            <dxg:GridControl.Columns>
+                <dxg:GridColumn FieldName=" " Header="Chọn" Width="70"  HorizontalHeaderContentAlignment="Center" AllowEditing="False" Name="colCheck">
+                    <dxg:GridColumn.EditSettings>
+                        <dxe:CheckEditSettings ClickMode="Hover" />
+                    </dxg:GridColumn.EditSettings>
+                    <dxg:GridColumn.DisplayTemplate>
+                        <ControlTemplate>
+                            <dxe:CheckEdit Tag="{Binding}" HorizontalAlignment="Center" EditValueChanging="CheckEdit_EditValueChanging"  />
+                        </ControlTemplate>
+                    </dxg:GridColumn.DisplayTemplate>
+                </dxg:GridColumn>
+                <dxg:GridColumn FieldName="TenSach" Header="Tên sách" AllowAutoFilter="False" AllowEditing="False" />
+                <dxg:GridColumn FieldName="TacGia" Header="Tác giả" AllowAutoFilter="False" AllowEditing="False" />
+                <dxg:GridColumn FieldName="Gia" Header="Giá" AllowAutoFilter="False" AllowEditing="False">
+                    <dxg:GridColumn.EditSettings>
+                        <dxe:TextEditSettings DisplayFormat="#,##0" />
+                    </dxg:GridColumn.EditSettings>
+                </dxg:GridColumn>
+            </dxg:GridControl.Columns>
+            <dxg:GridControl.View>
+                <dxg:TableView AllowPerPixelScrolling="True" Name="tableView1" ShowTotalSummary="True" ShowGroupPanel="False" ShowSearchPanelFindButton="True" ShowSearchPanelMRUButton="True" ShowSearchPanelMode="Always" ShowIndicator="False" />
+            </dxg:GridControl.View>
+        </dxg:GridControl>
+        <TextBlock Height="23" HorizontalAlignment="Left" Margin="12,12,0,0" Name="textBlock1" Text="Độc giả" VerticalAlignment="Top" />
+        <TextBlock Height="23" HorizontalAlignment="Left" Margin="292,12,0,0" Name="textBlock2" Text="Ngày lập" VerticalAlignment="Top" />
+        <TextBox Height="23" HorizontalAlignment="Left" Margin="355,9,0,0" Name="txtNgayMuon" VerticalAlignment="Top" Width="154" BorderBrush="#FF3679DE" IsReadOnly="True" />
+        <Button Height="26" HorizontalAlignment="Left" Margin="118,415,0,0" Name="btThem" VerticalAlignment="Top" Width="75" Click="btThem_Click">
+            <WrapPanel Height="22" Width="65">
+                <Image Height="18" Margin="0,2,5,0" Source="/De01;component/images/Apply_16x16.png" Width="18" />
+                <TextBlock Margin="0,2,0,0" Text="Thêm" />
+            </WrapPanel>
+        </Button>
+        
+         <TextBlock Height="23" HorizontalAlignment="Left" Margin="191,45,0,0" Name="textBlock3" Text="DANH SÁCH CHI TIẾT" VerticalAlignment="Top" Foreground="#FF338CC7" FontWeight="Bold" FontSize="16" />
+        <Button Height="26" Click="btCancel_Click" HorizontalAlignment="Left" Margin="331,415,0,0" VerticalAlignment="Top" Width="75">
+            <WrapPanel Height="22" Width="65">
+                <Image Height="18" Margin="0,2,5,0" Source="/De01;component/images/Cancel_16x16.png" Width="18" />
+                <TextBlock Margin="0,2,0,0" Text="Hủy" />
+            </WrapPanel>
+        </Button>
+    </Grid>
+</Window>
